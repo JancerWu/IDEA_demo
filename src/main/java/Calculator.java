@@ -1,10 +1,7 @@
 public class Calculator {
-    public int compute(int number1, int number2, char symbol) {
-        return switch (symbol) {
-            case '+' -> number1 + number2;
-            case '-' -> number1 - number2;
-            default -> throw new IllegalArgumentException();
-        };
+    public int compute(int num1, int num2, String symbol) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+        Computable computable = computeFactory.getComputable(symbol);
+        return computable.compute(num1, num2);
     }
 
 }
